@@ -1,0 +1,64 @@
+# question 1
+# Program to count occurances of letters
+string_name=str(input("Enter the string : "))
+list1=string_name.split()
+list_l=[]
+for e in list1:
+    lower_e=e.lower()
+    list_l.append(lower_e)
+set1=set(list_l)
+dic={}
+for el in set1:
+    count=list_l.count(el)
+    dic.update({el:count})
+dic2={}
+set2={1,2}
+set2.clear()
+list2=[]
+if len(list1)==1:
+    for elements in string_name:
+        list2.append(elements)
+    for el in list2:
+        set2.add(el.lower())
+    string_l=string_name.lower()
+    for elem in set2:
+        dic2.update({elem:string_l.count(elem)})
+    print("\nDictionary containing 'Letter':'Letter Count' is shown below:")
+    print(dic2)
+else:
+    print("\nDictionary containing {'Word':'Word Count'} is shown below:")
+    print(dic)
+#question 2
+# Program to get next day of a given day
+year = int(input("Input a year: "))
+
+if (year % 400 == 0):
+    leapyear = True
+elif (year % 100 == 0):
+    leapyear = False
+elif (year % 4 == 0):
+    leapyear = True
+else:
+    leapyear = False
+
+month = int(input("Input a month [1-12]: "))
+
+if month in (1, 3, 5, 7, 8, 10, 12):
+    month_length = 31
+elif month == 2:
+    if leap_year:
+        month_length = 29
+    else:
+        month_length = 28
+else:
+    month_length = 30
+
+
+day = int(input("Input a day [1-31]: "))
+
+if day < month_length:
+    day += 1
+else:
+    day = 1
+    if month == 12:
+        month = 1
